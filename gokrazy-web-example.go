@@ -2,6 +2,7 @@ package main
 
 import "log"
 import "net/http"
+import "os"
 
 func greeting(w http.ResponseWriter, req *http.Request) {
 	w.Header().Set("Content-Type", "text/plain")
@@ -9,8 +10,8 @@ func greeting(w http.ResponseWriter, req *http.Request) {
 }
 
 func quitting(w http.ResponseWriter, req *http.Request) {
-	w.Header().Set("Content-Type", "text/plain")
-	w.Write([]byte("Exiting the program!"))
+	log.Print("Exiting!")
+	os.Exit(0)
 }
 
 func main() {
